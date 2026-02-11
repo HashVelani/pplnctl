@@ -1,0 +1,61 @@
+{
+	"name": "pplnctl Development",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+	"runArgs": [
+		"--userns=keep-id"
+	],
+	"hostRequirements": {
+		"podman": true
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/go:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"versions": "21,25",
+			"jdkDistro": "ms"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "lts"
+		},
+		"ghcr.io/devcontainers/features/terraform:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/aws-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "vscode",
+			"uid": "1000",
+			"gid": "1000"
+		}
+	},
+	"postCreateCommand": "go mod download && go mod tidy",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.go",
+				"hashicorp.terraform",
+				"amazonwebservices.aws-toolkit-vscode",
+				"ms-vscode.vscode-json"
+			],
+			"settings": {
+				"go.testFlags": ["-v"],
+				"go.lintTool": "golangci-lint",
+				"go.formatTool": "goimports",
+				"editor.formatOnSave": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true
+				}
+			}
+		}
+	},
+	"remoteUser": "vscode"
+}
+
