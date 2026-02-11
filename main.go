@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/hashvelani/pplnctl/internal/cli"
+	cli "github.com/hashvelani/pplnctl/internal/cmd"
 )
 
 func main() {
