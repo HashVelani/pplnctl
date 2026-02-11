@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hashvelani/pplnctl/internal/ci"
+	"github.com/hashvelani/pplnctl/internal/pipeline"
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +16,7 @@ var statusCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		pipelineName := args[0]
 
-		manager := ci.NewManager()
+		manager := pipeline.NewManager()
 		status, err := manager.GetStatus(pipelineName)
 		if err != nil {
 			return fmt.Errorf("failed to get pipeline status: %w", err)

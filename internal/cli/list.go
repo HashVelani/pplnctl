@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hashvelani/pplnctl/internal/ci"
+	"github.com/hashvelani/pplnctl/internal/pipeline"
 	"github.com/spf13/cobra"
 )
 
@@ -13,7 +13,7 @@ var listCmd = &cobra.Command{
 	Short: "List all pipelines",
 	Long:  "List all available pipelines",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		manager := ci.NewManager()
+		manager := pipeline.NewManager()
 		pipelines, err := manager.List()
 		if err != nil {
 			return fmt.Errorf("failed to list pipelines: %w", err)

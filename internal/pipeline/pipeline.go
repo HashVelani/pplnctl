@@ -1,5 +1,5 @@
-// Package ci provides CI/CD pipeline functionality.
-package ci
+// Package pipeline provides CI/CD pipeline functionality.
+package pipeline
 
 import (
 	"fmt"

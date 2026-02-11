@@ -1,4 +1,4 @@
-package ci
+package pipeline
 
 import (
 	"os"
@@ -130,4 +130,3 @@ func TestStatus_String(t *testing.T) {
 		})
 	}
 }
-

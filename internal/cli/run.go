@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hashvelani/pplnctl/internal/ci"
+	"github.com/hashvelani/pplnctl/internal/pipeline"
 	"github.com/spf13/cobra"
 )
 
@@ -21,9 +21,9 @@ var runCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		pipelineName := args[0]
 
-		executor := ci.NewExecutor()
+		executor := pipeline.NewExecutor()
 
-		opts := ci.RunOptions{
+		opts := pipeline.RunOptions{
 			Name:    pipelineName,
 			Config:  runConfigFile,
 			DryRun:  runDryRun,
